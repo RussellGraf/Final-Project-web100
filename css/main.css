@@ -318,9 +318,24 @@ a {
 
     .portfolioContainer {
       width: 90%;
-      max-width: 950px;
+      max-width: 1200px;
       margin: 0 auto;
       margin-bottom: 30px;
+    }
+
+    .isotope-frame {
+      width: 400px;
+      height: 200px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .isotope-frame img {
+      position: absolute; 
+      height: 105%;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translateY(-50%) translateX(-50%);
     }
 
     .button-center {
@@ -673,6 +688,10 @@ a {
   padding: 40px;
 }
 
+      /*BLOG*/
+      .left-col-blog {
+        
+      }
 
 
 

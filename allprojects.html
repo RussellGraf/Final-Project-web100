@@ -18,6 +18,7 @@
   	<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/jquery.fullpage-menu.js"></script>
     <script src="js/jquery.isotope.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
   </head>
 
   <body>
@@ -52,45 +53,53 @@
             <div class="button-center">
               <div class="portfolioFilter">
                 <a href="#" data-filter="*" class="current"><h5 class="isotope-button isotope-button-active">All Categories</h5></a>
-                <a href="#" class="" data-filter=".people"><h5 class="isotope-button">Branding</h5></a>
-                <a href="#" class="" data-filter=".places"><h5 class="isotope-button">Print</h5></a>
-                <a href="#" class="" data-filter=".food"><h5 class="isotope-button">Web</h5></a>
-                <a href="#" class="" data-filter=".objects"><h5 class="isotope-button">Logo</h5></a>
+                <a href="#" class="" data-filter=".branding"><h5 class="isotope-button">Branding</h5></a>
+                <a href="#" class="" data-filter=".print"><h5 class="isotope-button">Print</h5></a>
+                <a href="#" class="" data-filter=".web"><h5 class="isotope-button">Web</h5></a>
+                <a href="#" class="" data-filter=".logo"><h5 class="isotope-button">Logo</h5></a>
               </div>
             </div>
 
             <div class="portfolioContainer">
 
-              <div class="objects">
+              <div class="isotope-frame logo">
                 <img class="isotope-image"src="images/28a_0513.jpg">
+                <div class="black-overlay"><h4 class="featured-project-name"><a href="#">Project Name</h4></a></div>
               </div>
               
-              <div class="people places">
+              <div class="isotope-frame branding print">
                 <img class="isotope-image" src="images/44a_tmb_1113.jpg">
+                <div class="black-overlay"><h4 class="featured-project-name"><a href="#">Project Name</h4></a></div>
               </div>  
 
-              <div class="food">
+              <div class="isotope-frame branding">
                 <img class="isotope-image" src="images/survey-bulletin.jpg">
+                <div class="black-overlay"><h4 class="featured-project-name"><a href="#">Project Name</h4></a></div>
               </div>
               
-              <div class="people places">
+              <div class="isotope-frame logo print">
                 <img class="isotope-image" src="images/web3.png">
+                <div class="black-overlay"><h4 class="featured-project-name"><a href="#">Project Name</h4></a></div>
               </div>
 
-              <div class="places objects">
+              <div class="isotope-frame print web">
                 <img class="isotope-image" src="images/460_marmaladex2-big400.jpg">
+                <div class="black-overlay"><h4 class="featured-project-name"><a href="#">Project Name</h4></a></div>
               </div>
 
-              <div class="people food objects">
+              <div class="isotope-frame web logo">
                 <img class="isotope-image" src="images/3433498244_e8a4ce6bf5-460x200.jpg">
+                <div class="black-overlay"><h4 class="featured-project-name"><a href="#">Project Name</h4></a></div>
               </div>
 
-              <div class="food objects">
+              <div class="isotope-frame web logo">
                 <img class="isotope-image" src="images/webdesign-heinlein-support-von-adjouri-brand-consultants-berlin-logogestaltung-namensfindung-marke-firma-logodesign-markenberatung.jpg">
+                <div class="black-overlay"><h4 class="featured-project-name"><a href="#">Project Name</h4></a></div>
               </div>  
               
-              <div class="food">
+              <div class="isotope-frame web">
                 <img class="isotope-image" src="images/41c3351f7c5c66df.jpg">
+                <div class="black-overlay"><h4 class="featured-project-name"><a href="#">Project Name</h4></a></div>
               </div>
               
             </div>
@@ -123,41 +132,49 @@
 <!-- ISOTOPE -->
     <script type="text/javascript">
       $(window).load(function(){
-          var $container = $('.portfolioContainer');
-          $container.isotope({
-              filter: '*',
-              animationOptions: {
-                  duration: 750,
-                  easing: 'linear',
-                  queue: false
-              }
-          });
+        var $container = $('.portfolioContainer');
+        $container.isotope({
+            filter: '*',
+            animationOptions: {
+                duration: 750,
+                easing: 'linear',
+                queue: false
+            }
+        });
        
-          $('.portfolioFilter a').click(function(){
-              $('.portfolioFilter .current').removeClass('.current');
-              $(this).addClass('.current');
-       
-              var selector = $(this).attr('data-filter');
-              $container.isotope({
-                  filter: selector,
-                  animationOptions: {
-                      duration: 750,
-                      easing: 'linear',
-                      queue: false
-                  }
-               });
-               return false;
-          }); 
+        $('.portfolioFilter a').click(function(){
+            $('.portfolioFilter .current').removeClass('.current');
+            $(this).addClass('.current');
+     
+            var selector = $(this).attr('data-filter');
+            $container.isotope({
+                filter: selector,
+                animationOptions: {
+                    duration: 750,
+                    easing: 'linear',
+                    queue: false
+                }
+             });
+             return false;
+        }); 
 
-          $(".isotope-button").on("click", function() {
-            $("h5").removeClass("isotope-button-active");
-            $(this).addClass("isotope-button-active");
+        $(".isotope-button").on("click", function() {
+          $("h5").removeClass("isotope-button-active");
+          $(this).addClass("isotope-button-active");
         });
 
-          // $('div').on('click',function(){
-          // $('div').removeClass('active');
-          // $(this).addClass('active');
-          // });
+        /*overlay images*/
+
+        $(".isotope-frame").mouseenter(function(){
+          $(this).children().fadeIn(function(){
+            $(this).next().children().fadeIn();
+          });
+        });
+
+        $(".isotope-frame").mouseleave(function(){
+          $(".black-overlay").fadeOut();
+          $(".featured-project-name").fadeOut();
+        });
 
       });
     </script>
