@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+  <head>
+  	<meta charset="utf-8">
+  	<title>Final Project - Russell Graf</title>
+
+  <!-- GOOGLE FONTS /ICONS -->
+  	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+  	<link href='http://fonts.googleapis.com/css?family=Noto+Serif:400,800,500,400italic,700italic' rel='stylesheet' type='text/css'>
+
+  <!-- CSS -->
+  	<link href='css/fullpage-menu.css' rel='stylesheet' type='text/css'>
+    <link href='css/main.css' rel='stylesheet' type='text/css'>
+
+
+  <!-- JQUERY -->
+  	<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.fullpage-menu.js"></script>
+    <script src="js/jquery.isotope.js" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+  	  <div class="main"> 
+        <div class="page-container">
+  <!-- NAV -->
+          <div class="custom-navbar">
+            <a class="fm-button" href="#">Menu</a>
+            <a class="logo" href="index.html"><img src="images/homeicon.png"></a>
+          </div>
+          <div class="sidemenu">
+            <nav id="menu1" class="active">
+              <a href="index.html">Home</a>
+              <a href="allprojects.html">Work</a>
+              <a href="blog.html">Blog</a>
+              <a href="about.html">About</a>
+              <a href="contact.html">Contact</a>
+            </nav>
+          </div>
+<!-- CONTENT -->
+
+          <div class="container-banner">
+            <div class="center-header">
+              <h1>All Work</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, <br> sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+
+          <div class="isotope-container">
+            <div class="button-center">
+              <div class="portfolioFilter">
+                <a href="#" data-filter="*" class="current"><h5 class="isotope-button isotope-button-active">All Categories</h5></a>
+                <a href="#" class="" data-filter=".people"><h5 class="isotope-button">Branding</h5></a>
+                <a href="#" class="" data-filter=".places"><h5 class="isotope-button">Print</h5></a>
+                <a href="#" class="" data-filter=".food"><h5 class="isotope-button">Web</h5></a>
+                <a href="#" class="" data-filter=".objects"><h5 class="isotope-button">Logo</h5></a>
+              </div>
+            </div>
+
+            <div class="portfolioContainer">
+
+              <div class="objects">
+                <img class="isotope-image"src="images/watch.jpg">
+              </div>
+              
+              <div class="people places">
+                <img class="isotope-image" src="images/surf.jpg">
+              </div>  
+
+              <div class="food">
+                <img class="isotope-image" src="images/burger.jpg">
+              </div>
+              
+              <div class="people places">
+                <img class="isotope-image" src="images/subway.jpg">
+              </div>
+
+              <div class="places objects">
+                <img class="isotope-image" src="images/trees.jpg">
+              </div>
+
+              <div class="people food objects">
+                <img class="isotope-image" src="images/coffee.jpg">
+              </div>
+
+              <div class="food objects">
+                <img class="isotope-image" src="images/wine.jpg">
+              </div>  
+              
+              <div class="food">
+                <img class="isotope-image" src="images/salad.jpg">
+              </div>
+              
+            </div>
+
+          <div class="clear-float"></div>
+
+          <div class="footer-container">
+            <a href="#"><i class="fa fa-facebook-square social-footer-icons"></i></a>
+            <a href="#"><i class="fa fa-linkedin-square social-footer-icons"></i></a>
+            <a href="#"><i class="fa fa-twitter-square social-footer-icons"></i></a>
+          </div>
+
+
+          </div>
+        </div> <!-- Page Containter -->
+      </div> <!-- Main -->
+    </div> <!-- Wrapper -->
+    
+    <script>
+      $(document).ready( function() {
+        $(".sidemenu").fullpageMenu();
+        
+        $("#click-me").click(function() {
+          $(".sidemenu").openMenu();
+          return false;
+        });
+      });
+    </script>
+
+<!-- ISOTOPE -->
+    <script type="text/javascript">
+      $(window).load(function(){
+          var $container = $('.portfolioContainer');
+          $container.isotope({
+              filter: '*',
+              animationOptions: {
+                  duration: 750,
+                  easing: 'linear',
+                  queue: false
+              }
+          });
+       
+          $('.portfolioFilter a').click(function(){
+              $('.portfolioFilter .current').removeClass('.current');
+              $(this).addClass('.current');
+       
+              var selector = $(this).attr('data-filter');
+              $container.isotope({
+                  filter: selector,
+                  animationOptions: {
+                      duration: 750,
+                      easing: 'linear',
+                      queue: false
+                  }
+               });
+               return false;
+          }); 
+
+          $(".isotope-button").on("click", function() {
+            $("h5").removeClass("isotope-button-active");
+            $(this).addClass("isotope-button-active");
+        });
+
+          // $('div').on('click',function(){
+          // $('div').removeClass('active');
+          // $(this).addClass('active');
+          // });
+
+      });
+    </script>
+
+  </body>
+</html>
