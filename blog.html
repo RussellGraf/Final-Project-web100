@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+  	<meta charset="utf-8">
+  	<title>Final Project - Russell Graf</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- GOOGLE FONTS /ICONS -->
+  	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+  	<link href='http://fonts.googleapis.com/css?family=Noto+Serif:400,800,500,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!-- CSS -->
+  	<link href='css/fullpage-menu.css' rel='stylesheet' type='text/css'>
+    <link href='css/main.css' rel='stylesheet' type='text/css'>
+
+
+  <!-- JQUERY -->
+  	<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.fullpage-menu.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+  	  <div class="main"> 
+        <div class="page-container">
+  <!-- NAV -->
+          <div class="custom-navbar">
+            <a class="fm-button" href="#">Menu</a>
+            <a class="logo" href="index.html"><img src="images/homeicon.png"></a>
+          </div>
+          <div class="sidemenu">
+            <nav id="menu1" class="active">
+              <a href="index.html">Home</a>
+              <a href="allprojects.html">Work</a>
+              <a href="blog.html">Blog</a>
+              <a href="about.html">About</a>
+              <a href="contact.html">Contact</a>
+            </nav>
+          </div>
+
+      <!-- description -->
+          
+          <div class="clear-float"></div>
+          <footer>
+            <div class="footer-container">
+              <a href="#"><i class="fa fa-facebook-square social-footer-icons"></i></a>
+              <a href="#"><i class="fa fa-linkedin-square social-footer-icons"></i></a>
+              <a href="#"><i class="fa fa-twitter-square social-footer-icons"></i></a>
+            </div>
+          </footer>
+
+
+        </div> <!-- Page Containter -->
+      </div> <!-- Main -->
+    </div> <!-- Wrapper -->
+    
+    <script>
+      $(document).ready( function(){
+        $(".sidemenu").fullpageMenu();
+        
+        $("#click-me").click(function(){
+          $(".sidemenu").openMenu();
+          return false;
+        });
+      });
+    </script>
+  </body>
+</html>
