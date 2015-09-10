@@ -19,6 +19,7 @@
   	<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/jquery.fullpage-menu.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="cookies.js"></script>
     
   </head>
 
@@ -123,9 +124,14 @@
 
         $(".form-submitbutton").click(function(){
           $("textarea, .regular").slideUp(function(){
-            $(".form-submitbutton").val("Thank you!");  
+            $(".form-submitbutton").val("Thank you!");
+            Cookies.set("form-clicked", clicked);  
           });
         });
+
+        if (Cookies.get("form-clicked")) {
+          $(".form-submitbutton").val("Submit Again?");
+        }
 
       });
     </script>
